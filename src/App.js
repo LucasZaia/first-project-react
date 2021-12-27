@@ -3,8 +3,10 @@ import './App.css';
 import HelloWorld from './components/HelloWord';
 import Name from './components/Name';
 import List from './components/List';
-import Evento from './components/Evento';
-import Form from './components/Form';
+import Evento from './components/evento/Evento';
+import Form from './components/Forms/Form';
+import Condicao from './components/condicao/Condicao.js';
+import Lista from './components/lista/Lista';
 
 function App() {
 
@@ -14,6 +16,8 @@ function name (name){
 }
 
   const img = 'https://via.placeholder.com/150'
+
+  const itens = ['Fusca','Gol', 'Opala'];
 
 
   return (
@@ -27,8 +31,15 @@ function name (name){
       idade="30"></Name>
       <List></List> */}
 
-      <Evento mensagem="Olá Feliz Natal"/>
-      <Form/>
+      {/* <Evento mensagem="Olá Feliz Natal"/> */}
+      {/* <Form/> */}
+
+      <h1>Listas</h1>
+      {/* <Condicao/> */}
+
+      <Lista itens ={itens}/>
+      <Lista itens ={[]}/>
+
     </div>
   );
 }
