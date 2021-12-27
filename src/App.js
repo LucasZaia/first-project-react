@@ -1,46 +1,68 @@
-import logo from './logo.svg';
-import './App.css';
-import HelloWorld from './components/HelloWord';
-import Name from './components/Name';
-import List from './components/List';
-import Evento from './components/evento/Evento';
-import Form from './components/Forms/Form';
-import Condicao from './components/condicao/Condicao.js';
-import Lista from './components/lista/Lista';
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
+
+import { useState } from "react";
+
+import Navbar from "./components/Navbar";
+
+import logo from "./logo.svg";
+import Home from "./pages/Home";
+import Empresa from "./pages/Empresa";
+import Contato from "./pages/Contato";
+import "./App.css";
+// import HelloWorld from './components/HelloWord';
+// import Name from './components/Name';
+// import List from './components/List';
+// import Evento from './components/evento/Evento';
+// import Form from './components/Forms/Form';
+// import Condicao from './components/condicao/Condicao.js';
+// import Lista from './components/lista/Lista';
+// import Mensagem from './components/Mensagem';
+// import Saudacao from './components/Saudacao';
 
 function App() {
+  // function name (name){
+  //   return name;
+  // }
 
+  // const [mensagem, setMensagem] = useState()
 
-function name (name){
-  return name;
-}
+  // const img = 'https://via.placeholder.com/150'
 
-  const img = 'https://via.placeholder.com/150'
-
-  const itens = ['Fusca','Gol', 'Opala'];
-
+  // const itens = ['Fusca','Gol', 'Opala'];
 
   return (
-    <div className="App">
-      {/* <HelloWorld></HelloWorld>
-      <Name nome="Lucas"
-      work="Programador"
-      idade="20"></Name>
-      <Name nome="Roberto"
-      work="Programador"
-      idade="30"></Name>
-      <List></List> */}
+    <Router>
+      <Navbar/>
+      <Routes>
+        <Route path="/" element={<Home/>}></Route>
+        <Route path="/empresa" element={<Empresa/>}></Route>
+        <Route path="/contato" element={<Contato/>}></Route>
+      </Routes>
+    </Router>
 
-      {/* <Evento mensagem="Olá Feliz Natal"/> */}
-      {/* <Form/> */}
+    //     <div className="App">
+    //       {/* <HelloWorld></HelloWorld>
+    //       <Name nome="Lucas"
+    //       work="Programador"
+    //       idade="20"></Name>
+    //       <Name nome="Roberto"
+    //       work="Programador"
+    //       idade="30"></Name>
+    //       <List></List> */}
 
-      <h1>Listas</h1>
-      {/* <Condicao/> */}
+    //       {/* <Evento mensagem="Olá Feliz Natal"/> */}
+    //       {/* <Form/> */}
 
-      <Lista itens ={itens}/>
-      <Lista itens ={[]}/>
+    //       {/* <Condicao/> */}
+    // {/*
+    //       <Lista itens ={itens}/>
+    //       <Lista itens ={[]}/> */}
 
-    </div>
+    //       {/* <Mensagem setMensagem={setMensagem}/>
+    //       {mensagem}
+    //       <Saudacao mensagem={mensagem}/>
+    //        */}
+    //     </div>
   );
 }
 
