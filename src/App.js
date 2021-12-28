@@ -2,13 +2,21 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 
 import { useState } from "react";
 
-import Navbar from "./components/Navbar";
+import './App.css'
 
+//antd
+import 'antd/dist/antd.css'
+import ptBR from 'antd/lib/locale/pt_BR'
+
+import {ConfigProvider} from 'antd';
+
+import Navbar from "./components/Navbar";
 import logo from "./logo.svg";
 import Home from "./pages/Home";
 import Empresa from "./pages/Empresa";
 import Contato from "./pages/Contato";
-import "./App.css";
+import Layouts from "./pages/Layouts";
+
 // import HelloWorld from './components/HelloWord';
 // import Name from './components/Name';
 // import List from './components/List';
@@ -31,14 +39,19 @@ function App() {
   // const itens = ['Fusca','Gol', 'Opala'];
 
   return (
-    <Router>
-      <Navbar/>
-      <Routes>
-        <Route path="/" element={<Home/>}></Route>
-        <Route path="/empresa" element={<Empresa/>}></Route>
-        <Route path="/contato" element={<Contato/>}></Route>
-      </Routes>
-    </Router>
+     
+      <Router>
+        <ConfigProvider locale={ptBR}>
+        <Routes>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/empresa" element={<Empresa/>}></Route>
+          <Route path="/contato" element={<Contato/>}></Route>
+          <Route path="/Layouts" element={<Layouts/>}></Route>
+        </Routes>
+        </ConfigProvider>
+      </Router>
+
+
 
     //     <div className="App">
     //       {/* <HelloWorld></HelloWorld>

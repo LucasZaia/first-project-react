@@ -13,6 +13,9 @@ function Navbar() {
         <li>
           <Link to="/contato">Contato</Link>
         </li>
+        <li>
+          <Link to="/Layouts">Layout</Link>
+        </li>
       </ul>
     </div>
   );
