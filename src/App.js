@@ -42,12 +42,7 @@ function App() {
      
       <Router>
         <ConfigProvider locale={ptBR}>
-        <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/empresa" element={<Empresa/>}></Route>
-          <Route path="/contato" element={<Contato/>}></Route>
-          <Route path="/Layouts" element={<Layouts/>}></Route>
-        </Routes>
+        <Layouts/>
         </ConfigProvider>
       </Router>
 
