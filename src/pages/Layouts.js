@@ -12,66 +12,64 @@ import Empresa from "../pages/Empresa";
 import Contato from "../pages/Contato";
 
 import {
-  MenuUnfoldOutlined,
-  MenuFoldOutlined,
+  DesktopOutlined,
+  PieChartOutlined,
+  FileOutlined,
+  TeamOutlined,
   UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
+  MessageOutlined,
   HomeOutlined,
-  ShopOutlined,
-  CommentOutlined
+  MenuOutlined
 } from "@ant-design/icons";
 
 
-const { Header, Sider, Content, Footer } = Layout;
+const { Header, Content, Footer, Sider } = Layout;
+const { SubMenu } = Menu;
 
 function Layouts() {
   const [collapsed, setCollapsed] = useState(false);
-  const [toggle, setToggle] = useState();
-
   return (
-    <Layout>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={["1"]}>
-          <Menu.Item key="1" icon={<HomeOutlined />}>
-          <Link to="/">Home</Link>
-          </Menu.Item>
-          <Menu.Item key="2" icon={<ShopOutlined />}>
-            <Link to="/empresa">Empresa</Link>
-          </Menu.Item>
-          <Menu.Item key="3" icon={<CommentOutlined />}>
-            <Link to="/contato">Contato</Link>
-          </Menu.Item>
-        </Menu>
-      </Sider>
-      <Layout className="site-layout">
-        <Header className="site-layout-background" style={{ padding: 0 }}>
-          {React.createElement(
-            setCollapsed ? MenuUnfoldOutlined : MenuFoldOutlined,
-            {
-              className: "trigger",
-              onClick: setToggle,
-            }
-          )}
-        </Header>
-        <Content
-          className="site-layout-background"
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-          }}
-        >
-          <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/empresa" element={<Empresa />}></Route>
-            <Route path="/contato" element={<Contato />}></Route>
-          </Routes>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>Lucas Dev ©2021 Created by Ant UED</Footer>
-      </Layout>
+    <Layout style={{ minHeight: '100vh' }}>
+    <Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
+      <div className="logo" />
+      <Menu theme="dark" defaultSelectedKeys={['1']} mode="inline">
+        <Menu.Item key="1" icon={<HomeOutlined />}>
+            <Link to='/'>Home</Link>
+        </Menu.Item>
+        <Menu.Item key="2" icon={<DesktopOutlined />}>
+          <Link to='/empresa'>Empresa</Link>
+        </Menu.Item>
+        <SubMenu key="sub1" icon={<UserOutlined />} title="User">
+          <Menu.Item key="3">Tom</Menu.Item>
+          <Menu.Item key="4">Bill</Menu.Item>
+          <Menu.Item key="5">Alex</Menu.Item>
+        </SubMenu>
+        <SubMenu key="sub2" icon={<TeamOutlined />} title="Team">
+          <Menu.Item key="6">Team 1</Menu.Item>
+          <Menu.Item key="8">Team 2</Menu.Item>
+        </SubMenu>
+        <Menu.Item key="9" icon={<MessageOutlined />}>
+            <Link to='/contato'>Contato</Link>
+        </Menu.Item>
+      </Menu>
+    </Sider>
+    <Layout className="site-layout">
+      <Header className="site-layout-background" style={{ padding: 0 }} />
+      <Content style={{ margin: '0 16px' }}>
+        <Breadcrumb style={{ margin: '16px 0' }}>
+          <Breadcrumb.Item>Contato</Breadcrumb.Item>
+        </Breadcrumb>
+        <div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
+            <Routes>
+              <Route path='/' element={<Home/>}></Route>
+              <Route path='/empresa' element={<Empresa/>}></Route>
+              <Route path='/contato' element={<Contato/>}></Route>
+            </Routes>
+        </div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
     </Layout>
+  </Layout>
   );
         
 }
